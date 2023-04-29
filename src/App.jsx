@@ -6,7 +6,7 @@ import { Comment } from "react-loader-spinner";
 export const App = () => {
    const [prompt, setPrompt] = useState("");
    const [loading, setLoading] = useState(false);
-   const [response, setResponse] = useState(undefined);
+   const [response, setResponse] = useState();
 
    useEffect(() => {
       if (prompt === "") {
@@ -28,7 +28,7 @@ export const App = () => {
          };
 
          const res = await fetch("/api/ask", requestConfig);
-         debugger;
+
          const { message } = await res.json();
          setResponse(message);
          console.log(message);
